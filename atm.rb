@@ -15,7 +15,7 @@
 # User id
 # pin
 
-starting_balance = 9999
+starting_balance = rand 999999
 pin = 1234
 
 #withdraw_options = [10, 20, 50]
