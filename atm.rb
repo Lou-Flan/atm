@@ -15,10 +15,11 @@
 # User id
 # pin
 
-starting_balance = rand 999999
+starting_balance = rand 99999
 pin = 1234
 
-#withdraw_options = [10, 20, 50]
+withdraw_options = [10, 20, 50, "Other amount"]
+ 
 
 puts "Hello user. Please enter your pin"
 user_pin = gets.chomp.to_i
@@ -28,13 +29,24 @@ if user_pin != pin
 elsif user_pin == pin
     puts "Hello! Your balance is #{starting_balance}"
     puts "How much would you like to withdraw?"
-    withdraw_amount = gets.chomp.to_i
+    puts withdraw_options
 
-        if withdraw_amount <= starting_balance
-            puts "Here is #{withdraw_amount}. You new balance is #{starting_balance - withdraw_amount}"
-        elsif withdraw_amount > starting_balance
-            puts "insufficient funds"
-        else
-            puts "Please try again"
-    end
+    withdraw_amount = gets.chomp.to_i
+        
+        if (withdraw_amount%10) == 0
+            puts "You would like to withdraw #{withdraw_amount}"
+            puts "Your balance is #{starting_balance -= withdraw_amount}"
+        elsif (withdraw_amount%10) != 0
+            puts "please select a multiple 10"    
+        end
+    
+        
+
+    #     # if withdraw_amount <= starting_balance
+    #     #     puts "Here is #{withdraw_amount}. You new balance is #{starting_balance - withdraw_amount}"
+    #     # elsif withdraw_amount > starting_balance
+    #     #     puts "insufficient funds"
+    #     # else
+    #     #     puts "Please try again"
+    # end
 end
